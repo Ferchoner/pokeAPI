@@ -50,6 +50,15 @@ class PokemonService
             $abilities[] = $dAbilities['ability']['name'];
         }
 
+        $stats = [];
+        foreach ($data['stats'] as $dStats) {
+            $stats[] = [
+                'name' => $dStats['stat']['name'],
+                'base_stat' => $dStats['base_stat'],
+            ];
+        }
+
+
         return new Pokemon(
             $data['sprites']['front_default'],
             $data['name'],
@@ -57,7 +66,8 @@ class PokemonService
             $data['height'],
             $data['weight'],
             $types,
-            $abilities
+            $abilities,
+            $stats
         );
     }
 }
