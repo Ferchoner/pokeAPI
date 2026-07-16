@@ -11,17 +11,28 @@ class Pokemon
     protected string $weight = '';
     protected array $types = [];
     protected array $abilities = [];
+    protected array $stats = [];
 
     /**
-     * @param $image
-     * @param $name
-     * @param $pokemonId
-     * @param $height
-     * @param $weight
-     * @param $types
-     * @param $abilities
+     * @param string $image
+     * @param string $name
+     * @param string $pokemonId
+     * @param string $height
+     * @param string $weight
+     * @param array $types
+     * @param array $abilities
+     * @param array $stats
      */
-    public function __construct(string $image, string $name, string $pokemonId, string $height, string $weight, array $types, array $abilities)
+    public function __construct(
+        string $image,
+        string $name,
+        string $pokemonId,
+        string $height,
+        string $weight,
+        array $types,
+        array $abilities,
+        array $stats
+    )
     {
         $this->image = $image;
         $this->name = $name;
@@ -30,6 +41,7 @@ class Pokemon
         $this->weight = $weight;
         $this->types = $types;
         $this->abilities = $abilities;
+        $this->stats = $stats;
     }
 
     /**
@@ -143,5 +155,21 @@ class Pokemon
     public function setAbilities(array $abilities): void
     {
         $this->abilities = $abilities;
+    }
+
+    /**
+     * @return array
+     */
+    public function getStats(): array
+    {
+        return $this->stats;
+    }
+
+    /**
+     * @param array $stats
+     */
+    public function setStats(array $stats): void
+    {
+        $this->stats = $stats;
     }
 }

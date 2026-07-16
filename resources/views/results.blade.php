@@ -8,14 +8,14 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
 </head>
-<body>
+<body class="bg-gray-200">
 <main>
     @if ($errors)
-        <div class="flex items-center justify-center h-screen bg-gray-200">
+        <div class="flex items-center justify-center h-screen">
             {{ $errorMessage }}
         </div>
     @else
-        <div class="flex items-center justify-center h-screen bg-gray-200">
+        <div class="flex items-center justify-center h-screen">
             <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                 <div class="p-6 space-y-4 border-2 border-gray-200 rounded-lg">
                     <img class="object-cover w-full h-48 rounded" src="{{ $pokemon->getImage() }}" alt="{{ $pokemon->getName() }}">
@@ -35,6 +35,13 @@
                     <ul class="space-y-1">
                         @foreach($pokemon->getAbilities() as $ability)
                             <li class="text-gray-600">{{ $ability }}</li>
+                        @endforeach
+                    </ul>
+
+                    <h3 class="text-lg font-semibold text-gray-800">Estadisticas:</h3>
+                    <ul class="space-y-1">
+                        @foreach($pokemon->getStats() as $stat)
+                            <li class="text-gray-600">{{ $stat['name'] }}: {{ $stat['base_stat'] }}</li>
                         @endforeach
                     </ul>
                 </div>
