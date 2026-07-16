@@ -44,6 +44,7 @@
                             <li class="text-gray-600">{{ $stat['name'] }}: {{ $stat['base_stat'] }}</li>
                         @endforeach
                     </ul>
+                    <a href="/" class="px-3 py-2 mt-2 text-white bg-indigo-500 rounded hover:bg-indigo-600">Volver</a>
                 </div>
             </div>
         </div>
